@@ -3,7 +3,7 @@ const userModel = require('./model/userModel')
 const dialogModel = require('./model/dialogModel')
 const express = require('express')
 const app = express()
-const server = require("http").Server(app);
+const server = require("https").Server(app);
 const PORT = process.env.PORT || 9999
 const io = require("socket.io")(server, {
   cors: {
