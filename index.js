@@ -3,8 +3,10 @@ const userModel = require('./model/userModel')
 const dialogModel = require('./model/dialogModel')
 const express = require('express')
 const app = express()
-const server = require("https").Server(app);
+const server = require("http").Server(app);
 const PORT = process.env.PORT || 9999
+const cors = require('cors')
+
 const io = require("socket.io")(server, {
   cors: {
     origin: "https://fronthelp.vercel.app",
@@ -12,8 +14,14 @@ const io = require("socket.io")(server, {
   }
 })
 
-const cors = require('cors')
-app.use(cors({ credentials: true, origin: 'https://fronthelp.vercel.app' }));
+
+const corsOptions ={
+  origin:'https://fronthelp.vercel.app', 
+  credentials:true,
+  optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+
 
 io.on('connection', (socket) => {
 
