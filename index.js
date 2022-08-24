@@ -9,20 +9,15 @@ const cors = require('cors')
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://fronthelp.vercel.app",
+    origin:'*',
     methods: ["GET", "POST"]
   }
 })
 
-
-const corsOptions ={
-  origin:'https://fronthelp.vercel.app', 
-  credentials:true,
-  optionSuccessStatus:200
-}
 app.use(cors(corsOptions));
-
-
+app.get('/', function(req, res) {
+  res.json('hello world');
+});
 io.on('connection', (socket) => {
 
   socket.on('message', async (data) => {
