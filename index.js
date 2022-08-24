@@ -9,7 +9,7 @@ const cors = require('cors')
 
 const io = require("socket.io")(server, {
   cors: {
-    origin:'*',
+    origin:'https://fronthelp.vercel.app',
     methods: ["GET", "POST"],
     credentials: true  }
 })
