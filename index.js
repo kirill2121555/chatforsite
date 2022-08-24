@@ -11,6 +11,7 @@ const io = require("socket.io")(server, {
   cors: {
     origin:'https://fronthelp.vercel.app',
     methods: ["GET", "POST"],
+    path: "/my-custom-path/",
     credentials: true  }
 })
 
