@@ -18,6 +18,7 @@ app.use(cors({ credentials: true, origin: 'https://fronthelp.vercel.app' }));
 io.on('connection', (socket) => {
 
   socket.on('message', async (data) => {
+    try{
     const user = await userModel.findById(data.i)
     const isdialog = await user?.dialogs.get(data.to)
     let dialog=[];
@@ -26,6 +27,9 @@ io.on('connection', (socket) => {
     dialog.save()
     socket.join(dialog.room_uuid)
     io.to(dialog.room_uuid).emit('message', JSON.stringify(data));
+  }catch(e){
+    console.log('error')
+  }
   })
 });
 
