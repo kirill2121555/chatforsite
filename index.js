@@ -16,13 +16,16 @@ const io = require("socket.io")(server, {
 
 
 app.get('/oo', function(req, res) {
+  console.log('ooooooo')
+
   res.json('helloworld');
 });
+console.log('mess')
 
 io.on('connection', (socket) => {
   try{
   socket.on('message', async (data) => {
-    
+    console.log('mess')
     const user = await userModel.findById(data.i)
     const isdialog = await user?.dialogs.get(data.to)
     let dialog=[];
