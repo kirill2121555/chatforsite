@@ -17,8 +17,7 @@ const io = require("socket.io")(server, {
 
 
 app.get('/oo', function(req, res) {
-  console.log('ooooooo')
-
+  console.log('oooo')
   res.json('helloworld');
 });
 console.log('mess')
