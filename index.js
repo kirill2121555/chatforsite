@@ -11,7 +11,7 @@ const fs = require("fs");
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: 'https://fronthelp.vercel.app',//   http://localhost:3000
+    origin: 'https://fronthelp.vercel.app',
     methods: ["GET", "POST"],
     path: "/my-custom-path/",
     credentials: true
